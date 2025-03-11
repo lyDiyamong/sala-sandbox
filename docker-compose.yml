@@ -1,0 +1,46 @@
+services:
+  app:
+    build:
+      args:
+        user: sala
+        uid: 1000
+      context: ./
+      dockerfile: Dockerfile
+    image: sala-sandbox
+    container_name: sala-sandbox-app
+    restart: unless-stopped
+    working_dir: /var/www/
+    volumes:
+      - ./:/var/www
+    networks:
+      - sala-sandbox
+  postgres:
+    image: postgres:15
+    container_name: postgres_db
+    restart: unless-stopped
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=laravel
+      - POSTGRES_USER=laravel
+      - POSTGRES_PASSWORD=secret
+    ports:
+      - "5432:5432"
+    networks:
+      - sala-sandbox
+  nginx:
+    image: nginx:1.17-alpine
+    container_name: sala-sandbox-nginx
+    restart: unless-stopped
+    ports:
+      - 8300:80
+    volumes:
+      - ./:/var/www
+      - ./docker-compose/nginx:/etc/nginx/conf.d
+    networks:
+      - sala-sandbox
+networks:
+  sala-sandbox:
+    driver: bridge
+volumes:
+  postgres_data:
