@@ -10,6 +10,8 @@ services:
     container_name: sala-sandbox-app
     restart: unless-stopped
     working_dir: /var/www/
+    ports:
+      - "5173:5173" # Expose Vite's dev server
     volumes:
       - ./:/var/www
     networks:
