@@ -28,7 +28,7 @@
     <div class=" min-h-screen flex">
         <!-- Left side - Login Form -->
         <div class="w-full md:w-5/12 flex flex-col justify-center items-center p-8">
-            <div class="absolute top-8 mb-8">
+            <div class="mb-8">
                 <a href="/" class="flex items-center">
                     <img src="{{ asset('assets/images/sala-sandbox.png') }}" alt="Logo" class="w-full h-auto">
                 </a>
@@ -36,7 +36,7 @@
 
             <div >{{ $slot }}</div>
 
-            <div class="absolute bottom-3 text-sm text-gray-500">
+            <div class=" text-sm text-gray-500 mt-20">
                 <p>Copyright ©{{ date('Y') }} Produced by sala tech solution</p>
             </div>
         </div>
