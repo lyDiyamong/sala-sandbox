@@ -1,22 +1,22 @@
 {
-    "extends": "@vue/tsconfig/tsconfig.json",
     "include": ["resources/js/**/*"],
     "exclude": ["node_modules"],
     "compilerOptions": {
-      "allowJs": true,
-      "checkJs": false,
-      "jsx": "preserve",
-      "isolatedModules": true,
-      "resolveJsonModule": true,
-      "lib": ["ESNext", "DOM"],
-      "module": "ESNext",
-      "moduleResolution": "Node",
-      "target": "ESNext",
-      "strict": true,
-      "baseUrl": ".",
-      "paths": {
-        "@/*": ["resources/js/*"]
-      }
+        "allowJs": true,
+        "checkJs": false,
+        "jsx": "preserve",
+        "isolatedModules": true,
+        "resolveJsonModule": true,
+        "lib": ["ESNext", "DOM"],
+        "module": "ESNext",
+        "moduleResolution": "Node",
+        "target": "ESNext",
+        "strict": true,
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["resources/js/*"]
+        },
+        "outDir": "./dist",
+        "noEmit": true
     }
-  }
-  
+}
