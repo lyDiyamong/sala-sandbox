@@ -13,17 +13,40 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        
+        <style>
+            .auth-bg {
+                background-image: url('/images/auth-bg.png');
+                background-size: cover;
+                background-position: center;
+            }
+        </style>
     </head>
-    <body class="font-sans text-gray-900 antialiased">
-        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
-            <div>
-                <a href="/">
-                    <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-                </a>
-            </div>
+    <body class="font-sans text-gray-900 antialiased ">
+        <div class=" min-h-screen flex">
+            <!-- Left side - Login Form -->
+            <div class="w-full md:w-5/12 flex flex-col justify-center items-center p-8">
+                <div class="mb-8">
+                    <a href="/" class="flex items-center">
+                        <img src="{{ asset('assets/images/sala-sandbox.png') }}" alt="Logo" class="w-full h-auto">
+                    </a>
+                </div>
 
-            <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
-                {{ $slot }}
+                <div class="w-full max-w-md shadow-xl rounded-lg p-6">
+                    {{ $slot }}
+                </div>
+                
+                <div class="mt-6 text-sm text-gray-500">
+                    <p>Copyright ©{{ date('Y') }} Produced by sala tech solution</p>
+                </div>
+            </div>
+            
+            <!-- Right side - Background Image -->
+            <div class="hidden md:block md:w-7/12 bg-auth-bg ">
+                <!-- Using the correct path for the image in resources/assets/images -->
+                <div class="flex justify-center p-20">
+                    <img src="{{ asset('assets/images/auth-bg.png') }}" alt="Background Image" class="w-full ">
+                </div>
             </div>
         </div>
     </body>
